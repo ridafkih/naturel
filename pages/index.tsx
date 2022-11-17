@@ -29,12 +29,16 @@ export default function Home() {
         French Naturalizer
       </h1>
       <div className="flex flex-col gap-2 w-full max-w-xl">
-        <textarea
-          value={translationText}
-          onChange={({ target }) => setTranslationText(target.value)}
-          placeholder="Enter a phrase to translate."
-          className="block w-full p-4 bg-neutral-800 rounded-sm border-neutral-700 border text-neutral-100 outline-none focus:border-neutral-600"
-        />
+        <div className="relative w-full">
+          <textarea
+            value={translationText}
+            maxLength={500}
+            onChange={({ target }) => setTranslationText(target.value)}
+            placeholder="Enter a phrase to translate."
+            className="block w-full p-4 bg-neutral-800 rounded-sm border-neutral-700 border text-neutral-100 outline-none focus:border-neutral-600"
+          />
+          <span className="absolute right-2 -top-1 -translate-y-full text-neutral-500 text-xs">{translationText.length}/500</span>
+        </div>
         <button
           disabled={translationText.length <= 0}
           onClick={handleClick}

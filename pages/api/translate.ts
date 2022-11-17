@@ -9,7 +9,7 @@ export type TranslateResponseSchema = {
 };
 
 export const TranslateRequestSchema = z.object({
-  prospect: z.string(),
+  prospect: z.string().max(500),
 });
 
 const confirmRequestBody = async (body: unknown) => {
